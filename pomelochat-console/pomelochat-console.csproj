@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{44E5EB72-08DE-4076-9AF7-DAA30105B2A3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>pomelochatconsole</RootNamespace>
+    <AssemblyName>pomelochat-console</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Net" />
+    <Reference Include="pomelo-dotnetClient">
+      <HintPath>..\..\pomelo-dotnetClient\pomelo-dotnetClient\bin\Debug\pomelo-dotnetClient.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleJson">
+      <HintPath>..\..\pomelo-dotnetClient\pomelo-dotnetClient\bin\Debug\SimpleJson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\chatClient\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\chatClient\Main.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\server.json">
+      <Link>src\chatClient\server.json</Link>
+    </None>
+  </ItemGroup>
+</Project>
